@@ -1,0 +1,207 @@
+﻿/* ===================================
+   Адаптивные стили для КР №3.
+   Подход: Mobile First.
+   Базовые стили рассчитаны на мобильный экран.
+   Расширения добавляются через min-width медиазапросы.
+   =================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* ===================================
+   Контейнеры и секции
+   =================================== */
+.container,
+.section,
+.hero {
+  width: min(100% - 32px, 1200px);
+  margin-inline: auto;
+}
+
+.section {
+  padding-block: clamp(24px, 5vw, 64px);
+}
+
+/* ===================================
+   Навигация: Mobile First
+   =================================== */
+.site-nav__list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.site-nav__link {
+  display: block;
+  padding: 12px 16px;
+}
+
+/* С 768px — меню в строку */
+@media (min-width: 768px) {
+  .site-nav__list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+}
+
+/* ===================================
+   Sticky-шапка: только с 768px
+   =================================== */
+.site-header {
+  position: static;
+}
+
+@media (min-width: 768px) {
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+}
+
+/* ===================================
+   Hero-блок
+   =================================== */
+.hero {
+  display: grid;
+  gap: 24px;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ===================================
+   Сетка карточек товаров
+   =================================== */
+.products-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md, 16px);
+}
+
+@media (min-width: 768px) {
+  .products-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .products-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* ===================================
+   Каталог: фильтр + товары
+   =================================== */
+.catalog-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .catalog-layout {
+    grid-template-columns: 260px 1fr;
+    align-items: start;
+  }
+}
+
+/* ===================================
+   Форма заявки
+   =================================== */
+.order-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.order-form__field {
+  display: grid;
+  gap: 4px;
+}
+
+.order-form__input,
+.order-form__textarea,
+.order-form__select {
+  width: 100%;
+  min-height: 44px;
+}
+
+@media (min-width: 768px) {
+  .order-form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .order-form__field--wide,
+  .order-form__actions {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ===================================
+   Таблица характеристик
+   =================================== */
+.table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.product-table {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+}
+
+/* ===================================
+   Адаптивные изображения (для <picture> и <img>)
+   =================================== */
+.product-card__image,
+.hero__image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ===================================
+   Skip-link для быстрого перехода к контенту
+   =================================== */
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -100px;
+  z-index: 1000;
+  padding: 8px 12px;
+  color: #ffffff;
+  background-color: #111111;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  top: 16px;
+  outline: 3px solid var(--color-primary, #0057b8);
+  outline-offset: 3px;
+}
