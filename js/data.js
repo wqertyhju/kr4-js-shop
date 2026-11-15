@@ -74,6 +74,42 @@ const products = [
     rating: 4.8,
     isAvailable: false,
   },
-];
+  {
+    id: 7,
+    title: 'Микроволновая печь HeatWave 20',
+    category: 'kitchen',
+    price: 8990,
+    discountPercent: 10,
+    rating: 4.3,
+    isAvailable: true,
+  },
+  {
+    id: 8,
+    title: 'Книга "JavaScript для начинающих"',
+    category: 'books',
+    price: 1490,
+    discountPercent: 5,
+    rating: 4.9,
+    isAvailable: true,
+  },
+  {
+    id: 9,
+    title: 'Умная лампа LightBook Mini',
+    category: 'light',
+    price: 1990,
+    discountPercent: 15,
+    rating: 4.1,
+    isAvailable: false,
+  },
+  {
+    id: 10,
+    title: 'Книга "DOM и события"',
+    category: 'books',
+    price: 1790,
+    discountPercent: 0,
+    rating: 4.6,
+    isAvailable: true,
+  },];
 
 console.log('data.js: массив products загружен, товаров:', products.length);
+
