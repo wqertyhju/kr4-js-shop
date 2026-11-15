@@ -95,6 +95,9 @@ if (productsContainer) {
       return;
     }
     const productId = Number(button.dataset.productId);
+    if (typeof addToCart === 'function') {
+      addToCart(productId);
+    }
     console.log('В корзину, id товара:', productId);
   });
 }
@@ -123,3 +126,4 @@ if (sortSelect) {
 
 // Первый рендер.
 renderCatalog();
+
